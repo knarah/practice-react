@@ -48,7 +48,7 @@ input {
   font-size: 1rem;
   font-weight: var(--font-semi-bold);
 }
-#submit_btn:hover {
+.submit_btn:hover {
   cursor: pointer;
   background-color: #bd085a;
 }

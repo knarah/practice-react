@@ -48,10 +48,8 @@ function App() {
 
         {/* modal */}
         {modalShow? <Modal closeModal={closeModal} name={user.name} email={user.email}></Modal> : null}
-        
-        
-      </div>
-    
+
+      </div>  
      
   );
 }
