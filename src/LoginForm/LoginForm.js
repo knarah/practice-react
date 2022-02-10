@@ -1,22 +1,22 @@
 import { useState } from "react";
 import styles from "./LoginForm.module.css";
 
-function LoginForm({ getUserName, getUserEmail }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+function LoginForm({ setName, setEmail }) {
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
-  const onChangeName = (event) => setName(event.target.value);
-  const onChangeEmail = (event) => setEmail(event.target.value);
+  const onChangeName = (event) => setUserName(event.target.value);
+  const onChangeEmail = (event) => setUserEmail(event.target.value);
 
   const onSubmit = (event) => {
     event.preventDefault();
-    if (name === "" || email === "") {
+    if (userName === "" || userEmail === "") {
       return;
     }
-    getUserName(name);
-    getUserEmail(email);
-    setName("");
-    setEmail("");
+    setName(userName);
+    setEmail(userEmail);
+    setUserName("");
+    setUserEmail("");
   };
 
   return (
@@ -30,7 +30,7 @@ function LoginForm({ getUserName, getUserEmail }) {
           <label htmlFor="name">Name</label>
           <input
             onChange={onChangeName}
-            value={name}
+            value={userName}
             type="text"
             name="name"
             id="name"
@@ -41,7 +41,7 @@ function LoginForm({ getUserName, getUserEmail }) {
           <label htmlFor="email">Email</label>
           <input
             onChange={onChangeEmail}
-            value={email}
+            value={userEmail}
             type="email"
             name="email"
             id="email"

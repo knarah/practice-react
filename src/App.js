@@ -3,35 +3,25 @@ import Modal from "./Modal/Modal";
 import LoginForm from "./LoginForm/LoginForm";
 
 function App() {
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [modalShow, setModalShow] = useState(false);
-
-  const getUserName = (userName) => {
-    setUserName(userName);
-  };
-
-  const getUserEmail = (userEmail) => {
-    setUserEmail(userEmail);
-  };
 
   const closeModal = () => {
     setModalShow(false);
   };
 
   useEffect(() => {
-    if (userName === "" || userEmail === "") {
+    if (name === "" || email === "") {
       return;
     }
     setModalShow(true);
-  }, [userName]);
+  }, [name]);
 
   return (
     <>
-      <LoginForm getUserName={getUserName} getUserEmail={getUserEmail} />
-      {modalShow && (
-        <Modal onClose={closeModal} userName={userName} userEmail={userEmail} />
-      )}
+      <LoginForm setName={setName} setEmail={setEmail} />
+      {modalShow && <Modal onClose={closeModal} name={name} email={email} />}
     </>
   );
 }
